@@ -1,21 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Retreat Flow | Langkawi Serenity</title>
+    <link rel="icon" type="image/png" href="img/ls-logo.png">
+    <link rel="apple-touch-icon" href="img/ls-logo.png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --green: #1b4332; --sand: #d4a373; --bg: #f9fbf9; }
-        
-        body { 
-            background-color: var(--bg); 
-            color: #444; 
-            line-height: 1.6; 
-            margin: 0; 
-            font-family: 'Montserrat', sans-serif; 
+        :root {
+            --green: #1b4332;
+            --sand: #d4a373;
+            --bg: #f9fbf9;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #444;
+            line-height: 1.6;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* Navigation Bar (Consistent with Home) */
@@ -29,17 +37,42 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             box-sizing: border-box;
         }
 
-        .logo { font-family: 'Playfair Display', serif; font-weight: bold; font-size: 1.2rem; color: var(--green); letter-spacing: 1px; }
-        .logo span { color: var(--sand); }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--green);
+            letter-spacing: 1px;
+        }
 
-        .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; margin: 0; }
-        .nav-links a { text-decoration: none; color: #333; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--sand); }
-        
+        .logo span {
+            color: var(--sand);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sand);
+        }
+
         .nav-book-btn {
             background: var(--green);
             color: white !important;
@@ -54,10 +87,27 @@
             text-align: center;
             border-bottom: 1px solid #eee;
         }
-        .itinerary-intro h1 { font-family: 'Playfair Display', serif; color: var(--green); font-size: 2.8rem; margin: 0; }
-        .itinerary-intro p { color: var(--sand); font-weight: 500; letter-spacing: 1px; margin-top: 10px; font-size: 1rem; }
 
-        .content-area { max-width: 850px; margin: 40px auto 100px; padding: 0 20px; }
+        .itinerary-intro h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--green);
+            font-size: 2.8rem;
+            margin: 0;
+        }
+
+        .itinerary-intro p {
+            color: var(--sand);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .content-area {
+            max-width: 850px;
+            margin: 40px auto 100px;
+            padding: 0 20px;
+        }
 
         /* Day Cards */
         .day-box {
@@ -66,24 +116,58 @@
             padding: 50px;
             margin-bottom: 40px;
             border: 1px solid #f0f0f0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
         }
-        .day-label { color: var(--sand); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
-        .day-title { font-family: 'Playfair Display', serif; color: var(--green); font-size: 2rem; margin: 8px 0 30px; }
 
-        .activity-list { list-style: none; padding: 0; margin-bottom: 35px; }
-        .activity-list li { margin-bottom: 25px; padding-left: 35px; position: relative; }
-        .activity-list li::before { 
-            content: ""; 
-            position: absolute; 
-            left: 0; 
-            top: 10px;
-            width: 15px; 
-            height: 2px; 
-            background: var(--sand); 
+        .day-label {
+            color: var(--sand);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        .activity-list li strong { display: block; color: #222; font-size: 1.15rem; margin-bottom: 5px; }
-        .activity-list li p { margin: 0; color: #666; font-size: 1rem; }
+
+        .day-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--green);
+            font-size: 2rem;
+            margin: 8px 0 30px;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 35px;
+        }
+
+        .activity-list li {
+            margin-bottom: 25px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .activity-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 15px;
+            height: 2px;
+            background: var(--sand);
+        }
+
+        .activity-list li strong {
+            display: block;
+            color: #222;
+            font-size: 1.15rem;
+            margin-bottom: 5px;
+        }
+
+        .activity-list li p {
+            margin: 0;
+            color: #666;
+            font-size: 1rem;
+        }
 
         /* Suggested Places */
         .suggested-section {
@@ -92,77 +176,123 @@
             border-radius: 18px;
             border: 1px solid #e8f2ed;
         }
-        .suggested-section h4 { margin: 0 0 15px; font-size: 0.8rem; color: var(--green); text-transform: uppercase; letter-spacing: 1px; }
-        .tag-container { display: flex; flex-wrap: wrap; gap: 12px; }
-        .tag-container span { 
-            background: white; 
-            padding: 7px 15px; 
-            border-radius: 8px; 
-            border: 1px solid #dce8e1; 
-            font-size: 0.85rem; 
+
+        .suggested-section h4 {
+            margin: 0 0 15px;
+            font-size: 0.8rem;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tag-container span {
+            background: white;
+            padding: 7px 15px;
+            border-radius: 8px;
+            border: 1px solid #dce8e1;
+            font-size: 0.85rem;
             color: #555;
             font-weight: 500;
         }
 
-        .final-note { text-align: center; color: #999; font-style: italic; margin-top: 80px; }
+        .final-note {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            margin-top: 80px;
+        }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            nav { padding: 15px 5%; }
-            .nav-links { display: none; } /* Simplified for this example; add your mobile toggle logic if needed */
-            .day-box { padding: 30px; }
-            .itinerary-intro h1 { font-size: 2rem; }
+            nav {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Simplified for this example; add your mobile toggle logic if needed */
+            .day-box {
+                padding: 30px;
+            }
+
+            .itinerary-intro h1 {
+                font-size: 2rem;
+            }
         }
+
         /* Mobile Adjustments */
-@media (max-width: 768px) {
-    nav { padding: 15px 5%; }
-    
-    .menu-toggle { display: flex !important; } /* Show hamburger on mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 5%;
+            }
 
-    .nav-links {
-        display: none; /* Hidden by default */
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: white;
-        padding: 20px 0;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-        gap: 20px;
-        text-align: center;
-    }
+            .menu-toggle {
+                display: flex !important;
+            }
 
-    .nav-links.active {
-        display: flex; /* Shown when toggled */
-    }
+            /* Show hamburger on mobile */
 
-    .nav-book-btn {
-        display: inline-block;
-        width: 80%;
-    }
+            .nav-links {
+                display: none;
+                /* Hidden by default */
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+                gap: 20px;
+                text-align: center;
+            }
 
-    .day-box { padding: 30px 20px; }
-    .itinerary-intro h1 { font-size: 2rem; }
-}
+            .nav-links.active {
+                display: flex;
+                /* Shown when toggled */
+            }
+
+            .nav-book-btn {
+                display: inline-block;
+                width: 80%;
+            }
+
+            .day-box {
+                padding: 30px 20px;
+            }
+
+            .itinerary-intro h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <nav>
-    <div class="logo">LANGKAWI<span>SERENITY</span></div>
-    
-    <div class="menu-toggle" id="mobile-menu" style="display: none; cursor: pointer; flex-direction: column; gap: 5px;">
-        <span style="width: 25px; height: 3px; background: #1b4332;"></span>
-        <span style="width: 25px; height: 3px; background: #1b4332;"></span>
-        <span style="width: 25px; height: 3px; background: #1b4332;"></span>
-    </div>
+        <div class="logo">LANGKAWI<span>SERENITY</span></div>
 
-    <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="calendar.html">Schedule</a></li>
-    </ul>
-</nav>
+        <div class="menu-toggle" id="mobile-menu"
+            style="display: none; cursor: pointer; flex-direction: column; gap: 5px;">
+            <span style="width: 25px; height: 3px; background: #1b4332;"></span>
+            <span style="width: 25px; height: 3px; background: #1b4332;"></span>
+            <span style="width: 25px; height: 3px; background: #1b4332;"></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calendar.html">Schedule</a></li>
+        </ul>
+    </nav>
 
     <div class="itinerary-intro">
         <h1>The Retreat Flow</h1>
@@ -170,18 +300,20 @@
     </div>
 
     <div class="content-area">
-        
+
         <div class="day-box">
             <span class="day-label">Day 01</span>
             <h2 class="day-title">Arrival & Settling In</h2>
             <ul class="activity-list">
                 <li>
                     <strong>Welcome to the Island</strong>
-                    <p>We'll meet you at the airport or ferry for a quiet drive to your hotel. The first afternoon is yours to simply rest, unpack, and feel the sea breeze.</p>
+                    <p>We'll meet you at the airport or ferry for a quiet drive to your hotel. The first afternoon is
+                        yours to simply rest, unpack, and feel the sea breeze.</p>
                 </li>
                 <li>
                     <strong>Sunset Welcome Dinner</strong>
-                    <p>A relaxed dinner at a local restaurant. No rush, just good food and the sound of the Andaman Sea.</p>
+                    <p>A relaxed dinner at a local restaurant. No rush, just good food and the sound of the Andaman Sea.
+                    </p>
                 </li>
             </ul>
             <div class="suggested-section">
@@ -199,7 +331,8 @@
             <ul class="activity-list">
                 <li>
                     <strong>Telaga Tujuh (Seven Wells) Hike</strong>
-                    <p>A morning visit to Langkawi’s most famous waterfall. We head to the top-tier pools for a swim in the natural springs before the day gets warm.</p>
+                    <p>A morning visit to Langkawi’s most famous waterfall. We head to the top-tier pools for a swim in
+                        the natural springs before the day gets warm.</p>
                 </li>
                 <li>
                     <strong>Gentle Afternoon Yoga</strong>
@@ -221,11 +354,13 @@
             <ul class="activity-list">
                 <li>
                     <strong>Forest Horse Riding</strong>
-                    <p>A steady trail ride through the jungle canopies. It's a quiet, rhythmic way to connect with the island's landscape.</p>
+                    <p>A steady trail ride through the jungle canopies. It's a quiet, rhythmic way to connect with the
+                        island's landscape.</p>
                 </li>
                 <li>
                     <strong>Tanjung Rhu Quiet Time</strong>
-                    <p>We'll spend the afternoon at Tanjung Rhu Beach—the quietest stretch of white sand on the island—for some sun and reflection.</p>
+                    <p>We'll spend the afternoon at Tanjung Rhu Beach—the quietest stretch of white sand on the
+                        island—for some sun and reflection.</p>
                 </li>
             </ul>
             <div class="suggested-section">
@@ -243,7 +378,8 @@
             <ul class="activity-list">
                 <li>
                     <strong>Closing Breakfast</strong>
-                    <p>A final long breakfast together to share stories and say our goodbyes before the journey home.</p>
+                    <p>A final long breakfast together to share stories and say our goodbyes before the journey home.
+                    </p>
                 </li>
                 <li>
                     <strong>Departure Transfer</strong>
@@ -258,24 +394,26 @@
             </div>
         </div>
 
-        <p class="final-note">Please note: Our private transport is available for all the suggested locations above. Just let your host know if you'd like to visit any of them.</p>
+        <p class="final-note">Please note: Our private transport is available for all the suggested locations above.
+            Just let your host know if you'd like to visit any of them.</p>
     </div>
     <script src="footer.js"></script>
     <script>
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-links');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
 
-    mobileMenu.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-    });
-</script>
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
+
 </html>

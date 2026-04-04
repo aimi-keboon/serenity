@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retreat Schedule | Langkawi Serenity</title>
+    <link rel="icon" type="image/png" href="img/ls-logo.png">
+    <link rel="apple-touch-icon" href="img/ls-logo.png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <style>
-        body { background-color: #f8faf9; padding-top: 100px; }
-        
-        .calendar-header { text-align: center; margin-bottom: 50px; padding: 0 20px; }
-        .calendar-header h1 { font-family: 'Playfair Display', serif; color: #1b4332; font-size: 2.8rem; }
-        
-        .schedule-container { max-width: 1000px; margin: 0 auto 80px; padding: 0 20px; }
+        body {
+            background-color: #f8faf9;
+            padding-top: 100px;
+        }
+
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .calendar-header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #1b4332;
+            font-size: 2.8rem;
+        }
+
+        .schedule-container {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
 
         /* Modern Schedule Cards */
         .date-strip {
@@ -22,14 +43,14 @@
             margin-bottom: 20px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             align-items: center;
         }
 
         .date-strip:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
         }
 
         .date-block {
@@ -41,11 +62,30 @@
             flex-direction: column;
             justify-content: center;
         }
-        .date-block .month { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.9; }
-        .date-block .day { font-size: 1.8rem; font-weight: 700; margin: 5px 0; }
 
-        .date-details { padding: 20px 40px; }
-        .date-details h3 { font-size: 1.2rem; color: #333; margin-bottom: 8px; }
+        .date-block .month {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .date-block .day {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 5px 0;
+        }
+
+        .date-details {
+            padding: 20px 40px;
+        }
+
+        .date-details h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
         .status-pill {
             display: inline-block;
             font-size: 0.75rem;
@@ -55,13 +95,32 @@
             text-transform: uppercase;
         }
 
-        .available .status-pill { background: #e7f3ef; color: #1b4332; }
-        .limited .status-pill { background: #fff4e5; color: #d4a373; }
-        .sold-out { opacity: 0.7; filter: grayscale(1); }
-        .sold-out .status-pill { background: #eee; color: #777; }
+        .available .status-pill {
+            background: #e7f3ef;
+            color: #1b4332;
+        }
 
-        .date-action { padding: 20px; text-align: center; border-left: 1px dashed #eee; }
-        
+        .limited .status-pill {
+            background: #fff4e5;
+            color: #d4a373;
+        }
+
+        .sold-out {
+            opacity: 0.7;
+            filter: grayscale(1);
+        }
+
+        .sold-out .status-pill {
+            background: #eee;
+            color: #777;
+        }
+
+        .date-action {
+            padding: 20px;
+            text-align: center;
+            border-left: 1px dashed #eee;
+        }
+
         .book-link {
             display: inline-block;
             background: #1b4332;
@@ -73,16 +132,36 @@
             font-size: 0.9rem;
             transition: background 0.3s;
         }
-        .book-link:hover { background: #d4a373; }
-        
-        .full-text { color: #999; font-weight: 600; font-size: 0.9rem; }
+
+        .book-link:hover {
+            background: #d4a373;
+        }
+
+        .full-text {
+            color: #999;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
 
         /* MOBILE NAV OVERRIDES */
         @media (max-width: 768px) {
-            .date-strip { grid-template-columns: 1fr; text-align: center; }
-            .date-block { padding: 15px; }
-            .date-action { border-left: none; border-top: 1px dashed #eee; }
-            .date-details { padding: 20px; }
+            .date-strip {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .date-block {
+                padding: 15px;
+            }
+
+            .date-action {
+                border-left: none;
+                border-top: 1px dashed #eee;
+            }
+
+            .date-details {
+                padding: 20px;
+            }
 
             /* Ensure nav links are hidden/shown correctly */
             .nav-links {
@@ -94,22 +173,25 @@
                 flex-direction: column;
                 padding: 40px 0;
                 transition: 0.4s;
-                display: flex; /* Override desktop hidden state */
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                display: flex;
+                /* Override desktop hidden state */
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             }
+
             .nav-links.active {
                 right: 0;
             }
         }
     </style>
 </head>
+
 <body>
 
     <nav id="navbar">
         <div class="logo">
             <a href="index.html" style="text-decoration:none; color:inherit;">LANGKAWI<span>SERENITY</span></a>
         </div>
-        
+
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -128,23 +210,23 @@
     </div>
 
     <div class="schedule-container" id="schedule-list">
-        </div>
+    </div>
 
     <script src="dates.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- 1. POPULATE THE LIST ---
             const list = document.getElementById('schedule-list');
-            
+
             // Check if retreatDates is defined in dates.js
             if (typeof retreatDates !== 'undefined') {
-    retreatDates.forEach(date => {
-        const strip = document.createElement('div');
-        // Standardize status class (handles "Sold Out" vs "sold-out")
-        const statusClass = date.status.toLowerCase().replace(/\s+/g, '-');
-        strip.className = `date-strip ${statusClass}`;
+                retreatDates.forEach(date => {
+                    const strip = document.createElement('div');
+                    // Standardize status class (handles "Sold Out" vs "sold-out")
+                    const statusClass = date.status.toLowerCase().replace(/\s+/g, '-');
+                    strip.className = `date-strip ${statusClass}`;
 
-        strip.innerHTML = `
+                    strip.innerHTML = `
             <div class="date-block">
                 <span class="month">${date.month}</span>
                 <span class="day">${date.dayRange}</span>
@@ -158,14 +240,14 @@
                 </p>
             </div>
             <div class="date-action">
-                ${date.status.toLowerCase() !== "sold out" 
-                    ? `<a href="register.html?date=${date.id}" class="book-link">Select Date</a>` 
-                    : `<span class="full-text">Fully Booked</span>`}
+                ${date.status.toLowerCase() !== "sold out"
+                            ? `<a href="register.html?date=${date.id}" class="book-link">Select Date</a>`
+                            : `<span class="full-text">Fully Booked</span>`}
             </div>
         `;
-        list.appendChild(strip);
-    });
-}
+                    list.appendChild(strip);
+                });
+            }
 
             // --- 2. MOBILE MENU LOGIC ---
             const menuToggle = document.getElementById('mobile-menu');
@@ -181,4 +263,5 @@
     </script>
     <script src="footer.js"></script>
 </body>
+
 </html>
