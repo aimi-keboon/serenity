@@ -20,6 +20,7 @@ function injectFooter() {
                     <li><a href="itinerary.html" style="color: white; text-decoration: none; opacity: 0.7; transition: 0.3s;">The Retreat Flow</a></li>
                     <li><a href="calendar.html" style="color: white; text-decoration: none; opacity: 0.7; transition: 0.3s;">Retreat Schedule</a></li>
                     <li><a href="register.html" style="color: white; text-decoration: none; opacity: 0.7; transition: 0.3s;">Book a Spot</a></li>
+                    <li><a href="tnc.html" target="_blank" style="color: white; text-decoration: none; opacity: 0.7; transition: 0.3s;">Terms & Conditions</a></li>
                 </ul>
             </div>
 
@@ -29,6 +30,7 @@ function injectFooter() {
                 <a href="mailto:langkawi.serenity@gmail.com" style="color: white; text-decoration: none; font-weight: 600; border-bottom: 1px solid #d4a373; padding-bottom: 3px;">
                     langkawi.serenity@gmail.com
                 </a>
+                
             </div>
 
         </div>
