@@ -113,18 +113,56 @@
             .day-box { padding: 30px; }
             .itinerary-intro h1 { font-size: 2rem; }
         }
+        /* Mobile Adjustments */
+@media (max-width: 768px) {
+    nav { padding: 15px 5%; }
+    
+    .menu-toggle { display: flex !important; } /* Show hamburger on mobile */
+
+    .nav-links {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex; /* Shown when toggled */
+    }
+
+    .nav-book-btn {
+        display: inline-block;
+        width: 80%;
+    }
+
+    .day-box { padding: 30px 20px; }
+    .itinerary-intro h1 { font-size: 2rem; }
+}
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">LANGKAWI<span>SERENITY</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="calendar.html">Schedule</a></li>
-            <li><a href="register.html" class="nav-book-btn">Book Now</a></li>
-        </ul>
-    </nav>
+    <div class="logo">LANGKAWI<span>SERENITY</span></div>
+    
+    <div class="menu-toggle" id="mobile-menu" style="display: none; cursor: pointer; flex-direction: column; gap: 5px;">
+        <span style="width: 25px; height: 3px; background: #1b4332;"></span>
+        <span style="width: 25px; height: 3px; background: #1b4332;"></span>
+        <span style="width: 25px; height: 3px; background: #1b4332;"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calendar.html">Schedule</a></li>
+    </ul>
+</nav>
 
     <div class="itinerary-intro">
         <h1>The Retreat Flow</h1>
@@ -223,6 +261,21 @@
         <p class="final-note">Please note: Our private transport is available for all the suggested locations above. Just let your host know if you'd like to visit any of them.</p>
     </div>
     <script src="footer.js"></script>
+    <script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
