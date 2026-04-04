@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Schedule Editor | Langkawi Serenity</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #f0f2f1; padding: 20px; font-family: 'Montserrat', sans-serif; color: #333; }
+        .admin-container { max-width: 1100px; margin: 0 auto; }
+        
+        .header-bar { 
+            background: #1b4332; color: white; padding: 25px; 
+            border-radius: 15px; display: flex; justify-content: space-between; 
+            align-items: center; margin-bottom: 30px;
+        }
+
+        .panel { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: #1b4332; border-bottom: 2px solid #f0f2f1; padding-bottom: 10px; }
+
+        /* Editable Table */
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th { text-align: left; font-size: 0.8rem; color: #888; padding: 10px; }
+        td { padding: 10px; border-bottom: 1px solid #eee; }
+        input, select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9rem; }
+        
+        .btn-add { background: #e7f3ef; color: #1b4332; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 600; margin-bottom: 20px; }
+        .btn-add:hover { background: #1b4332; color: white; }
+        .btn-delete { color: #e63946; background: none; border: none; cursor: pointer; font-size: 0.8rem; font-weight: 600; }
+
+        /* Preview Area */
+        .preview-scroll { display: flex; flex-direction: column; gap: 10px; background: #f8faf9; padding: 20px; border-radius: 10px; border: 1px dashed #ccc; }
+        
+        /* Mirroring Calendar CSS */
+        .date-strip { display: grid; grid-template-columns: 80px 1fr 100px; background: white; border-radius: 10px; overflow: hidden; border: 1px solid #eee; align-items: center; }
+        .date-block { background: #1b4332; color: white; text-align: center; padding: 10px 0; }
+        .date-block .month { font-size: 0.6rem; text-transform: uppercase; display: block; }
+        .date-block .day { font-size: 1.1rem; font-weight: 700; }
+        .date-details { padding: 10px 20px; }
+        .date-details h3 { font-size: 0.9rem; margin: 0; }
+        .status-pill { font-size: 0.6rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; }
+        .available .status-pill { background: #e7f3ef; color: #1b4332; }
+        .limited .status-pill { background: #fff4e5; color: #d4a373; }
+        .sold-out { opacity: 0.5; filter: grayscale(1); }
+
+        /* Code Export */
+        .code-box { background: #282c34; color: #abb2bf; padding: 20px; border-radius: 10px; font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; position: relative; }
+        .btn-copy { position: absolute; top: 15px; right: 15px; background: #d4a373; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <header class="header-bar">
+            <div>
+                <h1>Schedule Management</h1>
+                <p style="font-size: 0.8rem; opacity: 0.8;">Edit current dates and generate updated dates.js code.</p>
+            </div>
+            <a href="calendar.html" style="color: white; font-size: 0.8rem;">View Live Calendar</a>
+        </header>
+
+        <div class="panel">
+            <h2>1. Edit Current Sessions</h2>
+            <table id="date-table">
+                <thead>
+                    <tr>
+                        <th>ID (Unique)</th>
+                        <th>Month</th>
+                        <th>Days (01-04)</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    </tbody>
+            </table>
+            <button class="btn-add" onclick="addNewRow()">+ Add New Session</button>
+        </div>
+
+        <div class="panel">
+            <h2>2. Live Frontend Preview</h2>
+            <div id="preview-list" class="preview-scroll">
+                </div>
+        </div>
+
+        <div class="panel">
+            <h2>3. Updated Code (Copy this to dates.js)</h2>
+            <div class="code-box">
+                <button class="btn-copy" onclick="copyToClipboard()">Copy All Code</button>
+                <div id="code-output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dates.js"></script>
+
+    <script>
+        // Initial load from the existing retreatDates array in dates.js
+        document.addEventListener('DOMContentLoaded', () => {
+            const tbody = document.getElementById('table-body');
+            retreatDates.forEach((date, index) => {
+                createRow(date, index);
+            });
+            updateAll();
+        });
+
+        function createRow(date, index) {
+            const tbody = document.getElementById('table-body');
+            const tr = document.createElement('tr');
+            tr.id = `row-${index}`;
+            tr.innerHTML = `
+                <td><input type="text" value="${date.id}" oninput="updateAll()" class="in-id"></td>
+                <td><input type="text" value="${date.month}" oninput="updateAll()" class="in-month"></td>
+                <td><input type="text" value="${date.dayRange}" oninput="updateAll()" class="in-days"></td>
+                <td><input type="text" value="${date.year}" oninput="updateAll()" class="in-year"></td>
+                <td>
+                    <select onchange="updateAll()" class="in-status">
+                        <option value="Available" ${date.status === 'Available' ? 'selected' : ''}>Available</option>
+                        <option value="Limited" ${date.status === 'Limited' ? 'selected' : ''}>Limited</option>
+                        <option value="Sold Out" ${date.status === 'Sold Out' ? 'selected' : ''}>Sold Out</option>
+                    </select>
+                </td>
+                <td><button class="btn-delete" onclick="deleteRow(${index})">Remove</button></td>
+            `;
+            tbody.appendChild(tr);
+        }
+
+        function addNewRow() {
+            const newDate = { id: "new-id", month: "Month", dayRange: "01-04", year: "2026", status: "Available" };
+            createRow(newDate, Date.now());
+            updateAll();
+        }
+
+        function deleteRow(index) {
+            document.getElementById(`row-${index}`).remove();
+            updateAll();
+        }
+
+        function updateAll() {
+            const rows = document.querySelectorAll('#table-body tr');
+            let dataArray = [];
+            let previewHtml = '';
+
+            rows.forEach(row => {
+                const id = row.querySelector('.in-id').value;
+                const month = row.querySelector('.in-month').value;
+                const days = row.querySelector('.in-days').value;
+                const year = row.querySelector('.in-year').value;
+                const status = row.querySelector('.in-status').value;
+                const label = `${days} ${month} ${year}`;
+                const statusClass = status.toLowerCase().replace(" ", "-");
+
+                dataArray.push({ id, month, dayRange: days, year, status, label });
+
+                // Update Preview HTML
+                previewHtml += `
+                    <div class="date-strip ${statusClass}">
+                        <div class="date-block"><span class="month">${month}</span><span class="day">${days}</span></div>
+                        <div class="date-details">
+                            <span class="status-pill">${status}</span>
+                            <h3>${year} Session</h3>
+                        </div>
+                        <div style="padding:10px; font-size:0.7rem; color:#999; text-align:center;">Preview</div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('preview-list').innerHTML = previewHtml;
+
+            // Generate JS Code
+            const code = `const retreatDates = ${JSON.stringify(dataArray, null, 2)};
+
+function populateDateDropdown() {
+    const dateSelect = document.getElementById('retreat-date');
+    if (!dateSelect) return;
+    dateSelect.innerHTML = '<option value="" disabled selected>Select an upcoming date...</option>';
+    retreatDates.forEach(date => {
+        const option = document.createElement('option');
+        option.value = date.id;
+        option.textContent = \`\${date.label} — (\${date.status})\`;
+        if (date.status.toLowerCase() === "sold out") option.disabled = true;
+        dateSelect.appendChild(option);
+    });
+}
+
+function populateCalendarList() {
+    const listContainer = document.getElementById('schedule-list');
+    if (!listContainer) return;
+    listContainer.innerHTML = '';
+    retreatDates.forEach(date => {
+        const statusClass = date.status.toLowerCase().replace(/\\s+/g, '-');
+        const strip = document.createElement('div');
+        strip.className = \`date-strip \${statusClass}\`;
+        strip.innerHTML = \`
+            <div class="date-block"><span class="month">\${date.month}</span><span class="day">\${date.dayRange}</span></div>
+            <div class="date-details"><span class="status-pill">\${date.status}</span><h3>\${date.year} Retreat</h3></div>
+            <div class="date-action">\${date.status !== "Sold Out" ? \`<a href="register.html?date=\${date.id}" class="book-link">Select</a>\` : "Full"}</div>\`;
+        listContainer.appendChild(strip);
+    });
+}`;
+            document.getElementById('code-output').innerText = code;
+        }
+
+        function copyToClipboard() {
+            const code = document.getElementById('code-output').innerText;
+            navigator.clipboard.writeText(code).then(() => alert("All code copied! Open dates.js, delete everything, and paste this in."));
+        }
+    </script>
+</body>
+</html>
