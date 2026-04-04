@@ -20,26 +20,31 @@ content="Langkawi travel guide, Langkawi island Malaysia, Langkawi itinerary, La
 <body>
 
     <nav id="navbar">
-        <div class="logo">
-            <a href="index.html" style="text-decoration:none; color:inherit;">
-                LANGKAWI<span>SERENITY</span>
-            </a>
-        </div>
+    <div class="logo">
+        <a href="index.html" style="text-decoration:none; color:inherit;">
+            LANGKAWI<span>SERENITY</span>
+        </a>
+    </div>
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#activities">Activities</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="calendar.html">Schedule</a></li>
-            <li><a href="register.html" class="nav-book-btn">Book Now</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#activities">Activities</a></li>
+        
+        
+        <li><a href="#kl-support">KL Exclusive</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#corporate">Corporate</a></li>
+        <li><a href="#stays">Stays</a></li>
+        <li><a href="calendar.html">Retreat Schedule</a></li>
+        <li><a href="register.html" class="nav-book-btn">Book Now</a></li>
+    </ul>
+</nav>
 
     <header id="home" class="carousel-container">
         <div class="carousel-slide active">
@@ -66,32 +71,74 @@ content="Langkawi travel guide, Langkawi island Malaysia, Langkawi itinerary, La
         <button class="prev" onclick="moveSlide(-1)">❮</button>
         <button class="next" onclick="moveSlide(1)">❯</button>
     </header>
-
-    <section class="luxury-info" style="padding: 80px 10% 40px;">
-        <div class="info-grid">
-            <div class="info-item">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                    </polygon>
-                </svg>
-                <h3>Premium Accommodation</h3>
-                <p>Guaranteed stay in 4 to 5-star luxury hotels with full amenities.</p>
-            </div>
-            <div class="info-item">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="1" y="3" width="15" height="13"></rect>
-                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                </svg>
-                <h3>Island Transport</h3>
-                <p>Professional transportation included for all movements within the island.</p>
-            </div>
+<section id="how-to-book" style="padding: 100px 10%; background: #fdfdfd; font-family: 'Montserrat', sans-serif;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h4 style="color: #d4a373; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 700; margin-bottom: 15px;">Simple & Transparent</h4>
+            <h2 style="font-family: 'Playfair Display', serif; color: #1b4332; font-size: 2.5rem; margin-bottom: 20px;">Your Journey Starts Here</h2>
+            <p style="color: #666; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                We handle the logistics so you can focus on the stillness. Here is how we bring your retreat to life.
+            </p>
         </div>
-    </section>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; position: relative;">
+            
+            <div style="position: relative; padding: 20px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #e7f3ef; position: absolute; top: -10px; left: 0; z-index: 1;">01</span>
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: #1b4332; font-size: 1.2rem; margin-bottom: 10px;">Check the Schedule</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6; margin-bottom: 15px;">Visit our <a href="calendar.html" style="color: #d4a373; text-decoration: none; font-weight: 600;">Retreat Calendar</a> to find a date that fits your rhythm.</p>
+                </div>
+            </div>
+
+            <div style="position: relative; padding: 20px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #e7f3ef; position: absolute; top: -10px; left: 0; z-index: 1;">02</span>
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: #1b4332; font-size: 1.2rem; margin-bottom: 10px;">Select Your Package</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Choose your stay type and decide if you'd like our <strong>KL Exclusive</strong> door-to-door transport.</p>
+                </div>
+            </div>
+
+            <div style="position: relative; padding: 20px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #e7f3ef; position: absolute; top: -10px; left: 0; z-index: 1;">03</span>
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: #1b4332; font-size: 1.2rem; margin-bottom: 10px;">Submit Booking</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Fill out our simple registration form with your details and preferences.</p>
+                </div>
+            </div>
+
+            <div style="position: relative; padding: 20px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #e7f3ef; position: absolute; top: -10px; left: 0; z-index: 1;">04</span>
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: #1b4332; font-size: 1.2rem; margin-bottom: 10px;">Personal Confirmation</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">We will contact you within <strong>24 hours</strong> to confirm availability and discuss your specific needs.</p>
+                </div>
+            </div>
+
+            <div style="position: relative; padding: 20px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #e7f3ef; position: absolute; top: -10px; left: 0; z-index: 1;">05</span>
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: #1b4332; font-size: 1.2rem; margin-bottom: 10px;">Secure Your Spot</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Make your payment through our secure channels to finalize your reservation.</p>
+                </div>
+            </div>
+
+            <div style="position: relative; padding: 20px;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #e7f3ef; position: absolute; top: -10px; left: 0; z-index: 1;">06</span>
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: #1b4332; font-size: 1.2rem; margin-bottom: 10px;">Arrive & Unwind</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Step into a hassle-free experience where every detail is cared for by our island team.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="register.html" style="display: inline-block; background: #1b4332; color: white; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 20px rgba(27,67,50,0.1);">Start Your Booking</a>
+        </div>
+    </div>
+</section>
 
     <section id="activities" class="grid" style="padding: 40px 10% 100px;">
         <div class="card">
@@ -111,7 +158,7 @@ content="Langkawi travel guide, Langkawi island Malaysia, Langkawi itinerary, La
         </div>
     </section>
 
-    <section
+    <section id="kl-support"
         style="background: #1b4332; color: white; padding: 100px 10%; text-align: center; border-radius: 50px 50px 0 0;">
         <h2 style="color: #d4a373; font-size: 2.2rem; font-family: 'Playfair Display', serif;">Are you from the Klang
             Valley?</h2>
@@ -371,7 +418,80 @@ content="Langkawi travel guide, Langkawi island Malaysia, Langkawi itinerary, La
             </div>
         </div>
     </section>
+<section id="stays" style="padding: 100px 10%; background: #fff; font-family: 'Montserrat', sans-serif;">
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center; margin-bottom: 50px;">
+        <h4 style="color: #d4a373; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 700; margin-bottom: 15px;">Accommodation Options</h4>
+        <h2 style="font-family: 'Playfair Display', serif; color: #1b4332; font-size: 2.5rem; margin-bottom: 20px;">Sanctuaries of the Island</h2>
+        <p style="color: #666; font-size: 1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+            Langkawi offers a variety of peaceful 5-star settings. We recommend these locations for their commitment to stillness and natural beauty.
+        </p>
+    </div>
 
+    <div class="hotel-carousel" style="display: flex; overflow-x: auto; gap: 25px; padding: 30px 10px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+        
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.02);">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">The Danna</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">Colonial-style elegance at Telaga Harbour. Known for its massive infinity pool and classic, timeless architecture.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">The Datai</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">Hidden deep within an ancient rainforest. Ideal for total immersion in nature and quiet, earthy luxury.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">Four Seasons</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">Located on the pristine Tanjung Rhu beach. A vast, pavilion-style resort that offers unmatched space and privacy.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">The Ritz-Carlton</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">Modern luxury blended with the jungle. Features a world-class overwater spa and private beach cove.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">Casa del Mar</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">A boutique "Home by the Sea" on Pantai Cenang. Small, intimate, and highly personalized service.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">The St. Regis</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">The height of sophistication on the island's southern tip. Perfect for those who enjoy refined, grand spaces.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">The Westin</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">A wellness-focused resort near the ferry terminal. Excellent spa facilities and restorative "Heavenly" beds.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">Pelangi Beach</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">Traditional Malay village architecture set in lush tropical gardens. Very authentic and family-friendly.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">Tanjung Rhu Resort</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">A quiet classic on the most beautiful beach in Langkawi. Known for its peaceful, wide-open spaces.</p>
+        </div>
+
+        <div style="flex: 0 0 300px; scroll-snap-align: start; background: #fdfdfd; border: 1px solid #f0f0f0; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #1b4332; margin-bottom: 15px; font-size: 1.4rem;">Ambong Pool Villas</h3>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.8;">Private, eco-conscious villas perched on a hillside. Offers incredible views and a deep sense of seclusion.</p>
+        </div>
+
+    </div>
+
+    <p style="text-align: center; margin-top: 30px; font-size: 0.7rem; color: #aaa; letter-spacing: 2px;">
+        <span class="mobile-only">SCROLL TO DISCOVER →</span>
+    </p>
+</section>
+
+<style>
+    .hotel-carousel::-webkit-scrollbar { display: none; }
+    @media (max-width: 768px) {
+        .hotel-carousel { padding-left: 5%; padding-right: 5%; }
+    }
+</style>
     <section id="location" style="padding: 80px 10%;">
         <h2 style="text-align:center; margin-bottom:40px;">Location Hub</h2>
         <div class="map-container">
