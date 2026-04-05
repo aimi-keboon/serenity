@@ -23,7 +23,7 @@ const retreatDates = [
     "month": "April",
     "dayRange": "17-20",
     "year": "2026",
-    "status": "Limited",
+    "status": "Invite-Only",
     "label": "07-20 April 2026"
   },
   {
