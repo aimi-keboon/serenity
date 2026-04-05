@@ -4,6 +4,13 @@
  */
 const retreatDates = [
   {
+    "id": "apr26-weekend1",
+    "month": "April",
+    "dayRange": "10-13",
+    "year": "2026",
+    "status": "Limited",
+    "label": "07-20 April 2026"
+  },{
     "id": "apr-2026",
     "month": "April",
     "dayRange": "15-18",
